@@ -1,0 +1,26 @@
+version: "3.1"
+
+stories:
+
+- story: ask reservation ok
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_reservation
+  - action: utter_check_disponibility
+  - intent: choice_reservation
+  - action: utter_night_number
+  - intent: number_night
+  - action: utter_reservation
+  - intent: payment_reservation
+  - intent: accept_receipt
+  - action: utter_receipt
+
+- story: ask reservation pas ok
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: simple_bedroom
+  - action: utter_not_check_disponibility
+  - intent: negative_response
+  - action: utter_omg

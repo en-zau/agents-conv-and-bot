@@ -1,0 +1,63 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - ask_reservation
+  - choice_reservation
+  - payment_reservation
+  - accept_receipt
+  - number_night
+  - negative_response
+  - simple_bedroom
+
+action:
+  - utter_greet
+  - utter_did_that_help
+  - utter_goodbye
+  - utter_iamabot
+  - utter_check_disponibility
+  - utter_reservation
+  - utter_night_number
+  - utter_receipt
+  - utter_not_check_disponibility
+  - utter_omg
+
+responses:
+  utter_greet:
+  - text: "Bonjour ! comment puis-je vous renseigner ?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_check_disponibility:
+  - text: "Bien evidemment. Pour combien de personne voulez vous la chambre et pour qu'elle standard ?"
+
+  utter_reservation:
+  - text: "Oui pas de soucis, ça vous ferra 1333€ par carte ?"
+
+  utter_night_number:
+  - text: "Oui pour combien de nuits voulez vous reservez celle-ci ?"
+
+  utter_receipt:
+  - text: "Voici votre ticket de carte, bonne fin de journée à vous"
+
+  utter_not_check_disponibility:
+  - text: "Désolé monsieur l'hotel ne prend pas de SDF"
+
+  utter_omg:
+  - text: "OMG, UN CODEUR FOU :O "
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
