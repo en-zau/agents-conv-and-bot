@@ -47,7 +47,7 @@ class ActionBookTable(Action):
         
         # Logique de réservation ici (e.g., vérifier la disponibilité et enregistrer la réservation)
         
-        code = "XYZ123"  # Code de réservation généré
+        code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
         
         dispatcher.utter_message(text=f"Votre réservation a été confirmée. Votre numéro de réservation est {code}.")
         return [SlotSet("code", code)]
