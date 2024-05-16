@@ -1,26 +1,87 @@
 version: "3.1"
 
 stories:
+  - story: Greet and ask menu
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_menu
+      - action: utter_ask_menu
 
-- story: ask reservation ok
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: ask_reservation
-  - action: utter_check_disponibility
-  - intent: choice_reservation
-  - action: utter_night_number
-  - intent: number_night
-  - action: utter_reservation
-  - intent: payment_reservation
-  - intent: accept_receipt
-  - action: utter_receipt
+  - story: Book a table for today
+    steps:
+      - intent: book_table
+      - action: utter_ask_date
+      - intent: ask_today
+      - action: utter_ask_time
+      - intent: provide_time
+        entities:
+          - time: "19h"
+      - action: utter_ask_number_of_people
+      - intent: provide_number
+        entities:
+          - number: "2"
+      - action: utter_ask_phone_number
+      - intent: provide_phone_number
+        entities:
+          - number: "06 12 34 56 78"
+      - action: action_book_table
+      - action: utter_reservation_confirmed
 
-- story: ask reservation pas ok
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: simple_bedroom
-  - action: utter_not_check_disponibility
-  - intent: negative_response
-  - action: utter_omg
+  - story: Book a table for tomorrow
+    steps:
+      - intent: book_table
+      - action: utter_ask_date
+      - intent: ask_tomorrow
+      - action: utter_ask_time
+      - intent: provide_time
+        entities:
+          - time: "20h"
+      - action: utter_ask_number_of_people
+      - intent: provide_number
+        entities:
+          - number: "4"
+      - action: utter_ask_phone_number
+      - intent: provide_phone_number
+        entities:
+          - number: "07 87 65 43 21"
+      - action: action_book_table
+      - action: utter_reservation_confirmed
+
+  - story: Cancel reservation
+    steps:
+      - intent: ask_cancel_reservation
+      - action: utter_ask_code_reservation
+      - intent: provide_code
+        entities:
+          - code: "ABC123"
+      - action: action_cancel_reservation
+      - action: utter_reservation_cancelled
+
+  - story: Add comment to reservation
+    steps:
+      - intent: add_comment
+      - action: utter_ask_code_reservation
+      - intent: provide_code
+        entities:
+          - code: "XYZ789"
+      - action: utter_ask_new_comment
+      - intent: provide_comment
+        entities:
+          - comment: "Table près de la fenêtre"
+      - action: action_modify_comment
+      - action: utter_comment_added
+
+  - story: Modify comment on reservation
+    steps:
+      - intent: modify_comment
+      - action: utter_ask_code_reservation
+      - intent: provide_code
+        entities:
+          - code: "LMN456"
+      - action: utter_ask_new_comment
+      - intent: provide_comment
+        entities:
+          - comment: "Changement de place"
+      - action: action_modify_comment
+      - action: utter_comment_modified

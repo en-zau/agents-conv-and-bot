@@ -2,62 +2,93 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
+  - ask_menu
+  - book_table
+  - ask_date
+  - ask_today
+  - ask_tomorrow
+  - ask_time
+  - ask_number_of_people
+  - provide_number
+  - ask_phone_number
+  - provide_phone_number
+  - ask_code_reservation
+  - provide_code
+  - ask_cancel_reservation
+  - add_comment
+  - modify_comment
   - affirm
   - deny
-  - bot_challenge
-  - ask_reservation
-  - choice_reservation
-  - payment_reservation
-  - accept_receipt
-  - number_night
-  - negative_response
-  - simple_bedroom
 
-action:
-  - utter_greet
-  - utter_did_that_help
-  - utter_goodbye
-  - utter_iamabot
-  - utter_check_disponibility
-  - utter_reservation
-  - utter_night_number
-  - utter_receipt
-  - utter_not_check_disponibility
-  - utter_omg
+entities:
+  - number
+  - code
+
+slots:
+  date:
+    type: text
+  time:
+    type: text
+  number_of_people:
+    type: text
+  phone_number:
+    type: text
+  code:
+    type: text
+  comment:
+    type: text
 
 responses:
   utter_greet:
-  - text: "Bonjour ! comment puis-je vous renseigner ?"
+    - text: "Bonjour, comment puis-je vous aider aujourd'hui ?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_ask_menu:
+    - text: "Voici le menu du jour : ..."
 
-  utter_goodbye:
-  - text: "Bye"
+  utter_ask_date:
+    - text: "Pour quel jour souhaitez-vous réserver ?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_ask_time:
+    - text: "Pour quelle heure ?"
 
-  utter_check_disponibility:
-  - text: "Bien evidemment. Pour combien de personne voulez vous la chambre et pour qu'elle standard ?"
+  utter_ask_number_of_people:
+    - text: "Pour combien de personnes ?"
 
-  utter_reservation:
-  - text: "Oui pas de soucis, ça vous ferra 1333€ par carte ?"
+  utter_ask_phone_number:
+    - text: "Pouvez-vous fournir un numéro de téléphone ?"
 
-  utter_night_number:
-  - text: "Oui pour combien de nuits voulez vous reservez celle-ci ?"
+  utter_ask_code_reservation:
+    - text: "Pouvez-vous fournir le code de réservation ?"
 
-  utter_receipt:
-  - text: "Voici votre ticket de carte, bonne fin de journée à vous"
+  utter_reservation_confirmed:
+    - text: "Votre réservation a été confirmée. Votre numéro de réservation est {code}."
 
-  utter_not_check_disponibility:
-  - text: "Désolé monsieur l'hotel ne prend pas de SDF"
+  utter_reservation_not_possible:
+    - text: "Désolé, il n'est pas possible de réserver pour cette date/heure."
 
-  utter_omg:
-  - text: "OMG, UN CODEUR FOU :O "
-  
+  utter_reservation_cancelled:
+    - text: "Votre réservation a été annulée."
+
+  utter_ask_new_comment:
+    - text: "Quel est le nouveau commentaire ?"
+
+  utter_comment_added:
+    - text: "Votre commentaire a été ajouté."
+
+  utter_comment_modified:
+    - text: "Votre commentaire a été modifié."
+
+  utter_invalid_code:
+    - text: "Le code de réservation n'est pas valide. Veuillez réessayer."
+
+  utter_reservation_not_found:
+    - text: "Réservation non trouvée. Veuillez vérifier le code."
+
+actions:
+  - action_book_table
+  - action_cancel_reservation
+  - action_modify_comment
 
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: True

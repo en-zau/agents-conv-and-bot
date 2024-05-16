@@ -1,92 +1,109 @@
 version: "3.1"
-
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: greet
+    examples: |
+      - Bonjour
+      - Salut
+      - Hello
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: ask_menu
+    examples: |
+      - menu du jour
+      - Quels sont les plats aujourd'hui?
+      - Je voudrais voir le menu
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: book_table
+    examples: |
+      - réserver une table
+      - Je voudrais réserver une table
+      - Puis-je réserver une table?
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: ask_date
+    examples: |
+      - Quel jour ?
+      - Pour quel jour ?
+      - Quand voulez-vous réserver ?
 
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+  - intent: ask_today
+    examples: |
+      - Ce soir
+      - Aujourd'hui
+      - Ce soir à 19h
 
-- intent: ask_reservation
-  examples: |
-    - puis-je reserver une chambre ?
-    - avez-vous de la place dans votre hotel ?
+  - intent: ask_tomorrow
+    examples: |
+      - Demain
+      - Demain soir
+      - Pour demain
 
-- intent: choice_reservation
-  examples: |
-    - Une suite pour deux personnes si vous avez.
-    - je vais vous prendre une suite.
-    - Votre chambre la plus cher ! 
+  - intent: ask_time
+    examples: |
+      - Quelle heure ?
+      - A quelle heure ?
+      - Pour quelle heure ?
 
-- intent: payment_reservation
-  examples: |
-    - Par carte s'il vous plaît.
-    - En carte s'il vous plaît.
-    - Oui en carte.
+  - intent: ask_number_of_people
+    examples: |
+      - nombre de personne
+      - Combien de personnes ?
+      - Pour combien de personnes ?
 
-- intent: accept_receipt
-  examples: |
-    - Je veux bien le ticket avec.
+  - intent: provide_number
+    examples: |
+      - [2](number)
+      - Nous serons [4](number)
+      - Pour [3](number) personnes
 
-- intent: number_night
-  examples: |
-    - Pour deux nuit ça sera bien.
-    - Juste la soirée.
-    - la semaine soyons fou !
+  - intent: ask_phone_number
+    examples: |
+      - numéro de téléphone
+      - Pouvez-vous fournir un numéro de téléphone ?
+      - Quel est votre numéro de téléphone ?
 
-- intent: negative_response
-  examples: |
-    - Je suis un codeur fou vous aurez plein d'avis négatif sur tripadvisor
+  - intent: provide_phone_number
+    examples: |
+      - [06 12 34 56 78](number)
+      - Mon numéro est le [06 12 34 56 78](number)
+      - [07 87 65 43 21](number)
 
-- intent: simple_bedroom
-  examples: |
-    - Juste une petite chambre.
+  - intent: ask_code_reservation
+    examples: |
+      - code résa
+      - Puis-je avoir le code de réservation ?
+      - Quel est mon code de réservation ?
+
+  - intent: provide_code
+    examples: |
+      - [ABC123](code)
+      - Mon code est [ABC123](code)
+      - [XYZ789](code)
+
+  - intent: ask_cancel_reservation
+    examples: |
+      - annuler une réservation
+      - Je veux annuler ma réservation
+      - Comment puis-je annuler ma réservation?
+
+  - intent: add_comment
+    examples: |
+      - Ajouter un commentaire
+      - J'aimerais ajouter un commentaire
+      - Puis-je ajouter un commentaire ?
+
+  - intent: modify_comment
+    examples: |
+      - modifier commentaire
+      - changer le commentaire
+      - Je veux modifier mon commentaire
+
+  - intent: affirm
+    examples: |
+      - oui
+      - d'accord
+      - bien sûr
+
+  - intent: deny
+    examples: |
+      - non
+      - pas du tout
+      - je ne pense pas
