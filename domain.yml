@@ -27,21 +27,39 @@ entities:
 slots:
   date:
     type: text
+    mappings:
+      - type: from_text
   time:
     type: text
+    mappings:
+      - type: from_text
   number_of_people:
     type: text
+    mappings:
+      - type: from_text
   phone_number:
     type: text
+    mappings:
+      - type: from_text
   code:
     type: text
+    mappings:
+      - type: from_text
   comment:
     type: text
+    mappings:
+      - type: from_text
 
 responses:
   utter_greet:
     - text: "Bonjour, comment puis-je vous aider aujourd'hui ?"
-
+  
+  utter_goodbye:
+    - text: "Bonne continuation de votre vie, au plaisir de vous revoir !"
+      
+  utter_iamabot:
+    - text: "AHAHA BIEN VUE"
+      
   utter_ask_menu:
     - text: "Voici le menu du jour : ..."
 

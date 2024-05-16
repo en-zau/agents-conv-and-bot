@@ -44,9 +44,7 @@ class ActionBookTable(Action):
         time = tracker.get_slot("time")
         number_of_people = tracker.get_slot("number_of_people")
         phone_number = tracker.get_slot("phone_number")
-        
-        # Logique de réservation ici (e.g., vérifier la disponibilité et enregistrer la réservation)
-        
+                
         code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
         
         dispatcher.utter_message(text=f"Votre réservation a été confirmée. Votre numéro de réservation est {code}.")
