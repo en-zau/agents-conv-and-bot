@@ -2,111 +2,97 @@ version: "3.1"
 
 intents:
   - greet
-  - ask_menu
-  - book_table
-  - ask_date
-  - ask_today
-  - ask_tomorrow
-  - ask_time
-  - ask_number_of_people
-  - provide_number
-  - ask_phone_number
-  - provide_phone_number
-  - ask_code_reservation
+  - list_options
+  - reserve_table
+  - inquire_reservation
+  - cancel_reservation
+  - provide_date
+  - provide_time
+  - provide_number_of_people
   - provide_code
-  - ask_cancel_reservation
   - add_comment
-  - modify_comment
-  - affirm
-  - deny
-
-entities:
-  - number
-  - code
-
-slots:
-  date:
-    type: text
-    mappings:
-      - type: from_text
-  time:
-    type: text
-    mappings:
-      - type: from_text
-  number_of_people:
-    type: text
-    mappings:
-      - type: from_text
-  phone_number:
-    type: text
-    mappings:
-      - type: from_text
-  code:
-    type: text
-    mappings:
-      - type: from_text
-  comment:
-    type: text
-    mappings:
-      - type: from_text
-
-responses:
-  utter_greet:
-    - text: "Bonjour, comment puis-je vous aider aujourd'hui ?"
-  
-  utter_goodbye:
-    - text: "Bonne continuation de votre vie, au plaisir de vous revoir !"
-      
-  utter_iamabot:
-    - text: "AHAHA BIEN VUE"
-      
-  utter_ask_menu:
-    - text: "Voici le menu du jour : ..."
-
-  utter_ask_date:
-    - text: "Pour quel jour souhaitez-vous réserver ?"
-
-  utter_ask_time:
-    - text: "Pour quelle heure ?"
-
-  utter_ask_number_of_people:
-    - text: "Pour combien de personnes ?"
-
-  utter_ask_phone_number:
-    - text: "Pouvez-vous fournir un numéro de téléphone ?"
-
-  utter_ask_code_reservation:
-    - text: "Pouvez-vous fournir le code de réservation ?"
-
-  utter_reservation_confirmed:
-    - text: "Votre réservation a été confirmée. Votre numéro de réservation est {code}."
-
-  utter_reservation_not_possible:
-    - text: "Désolé, il n'est pas possible de réserver pour cette date/heure."
-
-  utter_reservation_cancelled:
-    - text: "Votre réservation a été annulée."
-
-  utter_ask_new_comment:
-    - text: "Quel est le nouveau commentaire ?"
-
-  utter_comment_added:
-    - text: "Votre commentaire a été ajouté."
-
-  utter_comment_modified:
-    - text: "Votre commentaire a été modifié."
-
-  utter_invalid_code:
-    - text: "Le code de réservation n'est pas valide. Veuillez réessayer."
-
-  utter_reservation_not_found:
-    - text: "Réservation non trouvée. Veuillez vérifier le code."
+  - provide_number_tel
 
 actions:
   - action_book_table
   - action_cancel_reservation
   - action_modify_comment
+  - action_inquire_reservation
+  - utter_greet
+  - utter_list_options
+  - utter_ask_date
+  - utter_ask_time
+  - utter_ask_number_of_people
+  - utter_reservation_confirmed
+  - utter_ask_phone_number
+  - utter_ask_comment
+  - utter_cancel_reservation
+  - utter_ask_reservation_code
+
+entities:
+  - date
+  - time
+  - number_of_people
+  - reservation_code
+  - phone_number
+  - comment
+
+slots:
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+  time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time
+  number_of_people:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_people
+  reservation_code:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: reservation_code
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  comment:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: comment
+
+responses:
+  utter_greet:
+    - text: "Bonjour"
+  utter_list_options:
+    - text: "Voici les options : 1. Menu du jour 2. Liste allergène 3. Lien vers la carte 4. Réserver une table 5. Info d'une réservation"
+  utter_ask_date:
+    - text: "Quel jour souhaitez-vous réserver ?"
+  utter_ask_time:
+    - text: "À quelle heure ?"
+  utter_ask_number_of_people:
+    - text: "Pour combien de personnes ?"
+  utter_ask_phone_number:
+    - text: "Veuillez fournir votre numéro de téléphone."
+  utter_ask_comment:
+    - text: "Veuillez ajouter votre commentaire."
+  utter_ask_reservation_code:
+    - text: "Veuillez fournir le code de réservation."
+  utter_reservation_confirmed:
+    - text: "Votre réservation est confirmée."
+  utter_cancel_reservation:
+    - text: "Votre réservation a été annulée."
+  utter_comment_added:
+    - text: "Votre commentaire a été ajouté."
 
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: True
+  carry_over_slots_to_new_session: true

@@ -1,109 +1,59 @@
 version: "3.1"
+
 nlu:
   - intent: greet
     examples: |
-      - Bonjour
-      - Salut
-      - Hello
+      - bonjour
+      - salut
+      - hello
 
-  - intent: ask_menu
+  - intent: list_options
     examples: |
-      - menu du jour
-      - Quels sont les plats aujourd'hui?
-      - Je voudrais voir le menu
+      - Quelles sont les options disponibles ?
+      - Montrez-moi les options
 
-  - intent: book_table
+  - intent: reserve_table
     examples: |
-      - réserver une table
-      - Je voudrais réserver une table
-      - Puis-je réserver une table?
+      - Je veux réserver une table
+      - Réserver une table
 
-  - intent: ask_date
+  - intent: inquire_reservation
     examples: |
-      - Quel jour ?
-      - Pour quel jour ?
-      - Quand voulez-vous réserver ?
+      - Info d'une réservation
+      - Demander le code réservation
 
-  - intent: ask_today
+  - intent: cancel_reservation
     examples: |
-      - Ce soir
-      - Aujourd'hui
-      - Ce soir à 19h
+      - Annuler une réservation
+      - Je veux annuler ma réservation
 
-  - intent: ask_tomorrow
+  - intent: provide_date
     examples: |
-      - Demain
-      - Demain soir
-      - Pour demain
+      - [Aujourd'hui](date)
+      - [Demain](date)
+      - [19 octobre](date)
 
-  - intent: ask_time
+  - intent: provide_time
     examples: |
-      - Quelle heure ?
-      - A quelle heure ?
-      - Pour quelle heure ?
+      - [19 heures](time)
+      - [20h00](time)
 
-  - intent: ask_number_of_people
+  - intent: provide_number_of_people
     examples: |
-      - nombre de personne
-      - Combien de personnes ?
-      - Pour combien de personnes ?
-
-  - intent: provide_number
-    examples: |
-      - [2](number)
-      - Nous serons [4](number)
-      - Pour [3](number) personnes
-
-  - intent: ask_phone_number
-    examples: |
-      - numéro de téléphone
-      - Pouvez-vous fournir un numéro de téléphone ?
-      - Quel est votre numéro de téléphone ?
-
-  - intent: provide_phone_number
-    examples: |
-      - [06 12 34 56 78](number)
-      - Mon numéro est le [06 12 34 56 78](number)
-      - [07 87 65 43 21](number)
-
-  - intent: ask_code_reservation
-    examples: |
-      - code résa
-      - Puis-je avoir le code de réservation ?
-      - Quel est mon code de réservation ?
+      - Pour [2](number_of_people) personnes
+      - Nous serons [4](number_of_people) personnes
 
   - intent: provide_code
     examples: |
-      - [ABC123](code)
-      - Mon code est [ABC123](code)
-      - [XYZ789](code)
+      - Mon code est [ABC123](reservation_code)
+      - [ABC123](reservation_code)
 
-  - intent: ask_cancel_reservation
+  - intent: provide_number_tel
     examples: |
-      - annuler une réservation
-      - Je veux annuler ma réservation
-      - Comment puis-je annuler ma réservation?
+      - Mon numéro est [0123456789](phone_number)
+      - [0123456789](phone_number)
 
   - intent: add_comment
     examples: |
       - Ajouter un commentaire
-      - J'aimerais ajouter un commentaire
-      - Puis-je ajouter un commentaire ?
-
-  - intent: modify_comment
-    examples: |
-      - modifier commentaire
-      - changer le commentaire
-      - Je veux modifier mon commentaire
-
-  - intent: affirm
-    examples: |
-      - oui
-      - d'accord
-      - bien sûr
-
-  - intent: deny
-    examples: |
-      - non
-      - pas du tout
-      - je ne pense pas
+      - Voici mon commentaire
