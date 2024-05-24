@@ -19,8 +19,9 @@ nlu:
 
   - intent: inquire_reservation
     examples: |
-      - Info d'une réservation
-      - Demander le code réservation
+      - Info de ma réservation
+      - Donne-moi les détails de ma réservation
+      - J'aimerais connaître les informations de ma réservation
 
   - intent: cancel_reservation
     examples: |
@@ -45,8 +46,9 @@ nlu:
 
   - intent: provide_code
     examples: |
-      - Mon code est [ABC123](reservation_code)
-      - [ABC123](reservation_code)
+      - Mon code est [OLPGER](reservation_code)
+      - C'est [AZERTY](reservation_code)
+      - Le voici [CFHBGA](reservation_code)
 
   - intent: provide_number_tel
     examples: |
@@ -56,4 +58,8 @@ nlu:
   - intent: add_comment
     examples: |
       - Ajouter un commentaire
-      - Voici mon commentaire
+      
+  - intent: provide_comment
+    examples: |
+      - Voici mon commentaire [BLABLABLA](comment)
+      - J'aimerais dire que [BLABLABLA](comment)

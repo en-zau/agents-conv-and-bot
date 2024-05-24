@@ -9,9 +9,9 @@ intents:
   - provide_date
   - provide_time
   - provide_number_of_people
-  - provide_code
   - add_comment
   - provide_number_tel
+  - provide_comment
 
 actions:
   - action_book_table
@@ -27,13 +27,12 @@ actions:
   - utter_ask_phone_number
   - utter_ask_comment
   - utter_cancel_reservation
-  - utter_ask_reservation_code
+  - utter_comment_added
 
 entities:
   - date
   - time
   - number_of_people
-  - reservation_code
   - phone_number
   - comment
 
@@ -53,11 +52,6 @@ slots:
     mappings:
       - type: from_entity
         entity: number_of_people
-  reservation_code:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: reservation_code
   phone_number:
     type: text
     mappings:
@@ -84,8 +78,6 @@ responses:
     - text: "Veuillez fournir votre numéro de téléphone."
   utter_ask_comment:
     - text: "Veuillez ajouter votre commentaire."
-  utter_ask_reservation_code:
-    - text: "Veuillez fournir le code de réservation."
   utter_reservation_confirmed:
     - text: "Votre réservation est confirmée."
   utter_cancel_reservation:
