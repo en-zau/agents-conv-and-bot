@@ -63,3 +63,10 @@ nlu:
     examples: |
       - Voici mon commentaire [BLABLABLA](comment)
       - J'aimerais dire que [BLABLABLA](comment)
+      
+  - intent: ask_menu
+    examples: |
+      - Quel est le menu du jour ? 
+      - Puis-je voir le menu du jour ?
+      - De quoi est fait votre menu du jour ?
+      - Menu du jour

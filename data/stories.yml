@@ -49,3 +49,8 @@ stories:
     steps:
       - intent: inquire_reservation
       - action: action_inquire_reservation
+        
+  - story: ask menu of the day
+    steps:
+      - intent: ask_menu
+      - action: utter_menu
