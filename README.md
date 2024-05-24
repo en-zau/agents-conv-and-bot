@@ -5,5 +5,5 @@ Voici notre schéma :
 Stories : 
 
   - Reserver une table
-  - Info d'une table
+  - Info de ma réservation
   - Menu du jour
